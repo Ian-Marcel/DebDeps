@@ -17,15 +17,15 @@ fi
 # == Primordial Dependencies ==
 SUDO=$(command -v sudo 2>/dev/null || true)
 
-$SUDO apt update &>/dev/null &
+$SUDO apt-get update &>/dev/null &
 wait_with_spinner_loading "Updating system..."
 
-$SUDO apt full-upgrade -y &>/dev/null &
+$SUDO apt-get full-upgrade -y &>/dev/null &
 wait_with_spinner_loading "Upgrading system..."
 
 source sources/essentials.list
 
-$SUDO apt install --fix-broken --fix-missing -y ${packages[@]} 1>/dev/null &
+$SUDO apt-get install --fix-broken --fix-missing -y ${packages[@]} 1>/dev/null &
 wait_with_spinner_loading "Installing Basic Dependencies..."
 
 while true; do
@@ -33,8 +33,8 @@ while true; do
     case $ANSWER in
     [Yy] | [Yy][Ee][Ss])
         source sources/extra_essential.list
-        $SUDO apt install --fix-broken --fix-missing -y ${extra_packages[@]} 1>/dev/null &
-        wait_with_spinner_loading "Installing Extra Dependencies..."
+        $SUDO apt-get install --fix-broken --fix-missing -y ${extra_packages[@]} #1>/dev/null &
+        #wait_with_spinner_loading "Installing Extra Dependencies..."
         break
         ;;
     [Nn] | [Nn][Oo])
@@ -47,8 +47,8 @@ while true; do
     esac
 done
 
-sudo apt autopurge -y
-sudo apt clean
+sudo apt-get autopurge -y
+sudo apt-get clean
 # == Primordial Dependencies ==
 
 # == Ondřej Surý PHP Repository for Debian ==
