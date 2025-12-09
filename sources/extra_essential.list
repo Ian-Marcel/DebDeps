@@ -1,0 +1,238 @@
+#!/usr/bin/env bash
+
+## non-essential primordial dependencies v2
+extra_packages=(
+    # ============================================================================
+    # CORE SYSTEM & ESSENTIALS
+    # ============================================================================
+    apt-config-icons
+
+    # ============================================================================
+    # PACKAGE MANAGEMENT & SYSTEM UPDATES
+    # ============================================================================
+    nala
+    needrestart
+    debsums
+
+    # ============================================================================
+    # NETWORKING - CORE
+    # ============================================================================
+    bind9-dnsutils
+    bridge-utils
+    vlan
+    ethtool
+    whois
+    traceroute
+
+    # ============================================================================
+    # NETWORKING - ADVANCED & CONTAINER NETWORKING
+    # ============================================================================
+    iptables
+    iptables-persistent
+    nftables
+    netavark
+    aardvark-dns
+    tcpdump
+    ndisc6
+    netcat-openbsd
+    socat
+
+    # ============================================================================
+    # SYSTEM MONITORING & DIAGNOSTICS
+    # ============================================================================
+    btop
+    htop
+    iotop
+    strace
+    ltrace
+    dstat
+    ncdu
+    lshw
+    hwinfo
+    dmidecode
+    inxi
+    usbutils
+    pciutils
+
+    # ============================================================================
+    # LOGGING & SYSTEM SERVICES
+    # ============================================================================
+    anacron
+
+    # ============================================================================
+    # SECURITY & HARDENING
+    # ============================================================================
+    pass
+    rkhunter
+    chkrootkit
+    aide
+    lynis
+    libpam-tmpdir
+    argon2
+
+    # ============================================================================
+    # FILE TRANSFER & SYNCHRONIZATION
+    # ============================================================================
+    lftp
+
+    # ============================================================================
+    # VERSION CONTROL & DEVELOPMENT TOOLS
+    # ============================================================================
+    git-lfs
+    tig
+    vim-tiny
+    yq
+    xmlstarlet
+
+    # ============================================================================
+    # TEXT PROCESSING
+    # ============================================================================
+    gawk
+
+    # ============================================================================
+    # COMPRESSION & ARCHIVING
+    # ============================================================================
+    zip
+    unzip
+    zstd
+    p7zip-full
+    libzstd-dev
+    liblzma-dev
+    libbz2-dev
+    zlib1g-dev
+
+    # ============================================================================
+    # CONTAINER RUNTIME & TOOLS
+    # ============================================================================
+    crun
+    conmon
+    slirp4netns
+    fuse-overlayfs
+    uidmap
+    #criu
+    passt
+    buildah
+    skopeo
+
+    # ============================================================================
+    # FILESYSTEMS & STORAGE
+    # ============================================================================
+    btrfs-progs
+    dosfstools
+    ntfs-3g
+    exfatprogs
+    lvm2
+    cryptsetup
+    cryptsetup-bin
+
+    # ============================================================================
+    # PYTHON ECOSYSTEM
+    # ============================================================================
+    python3-setuptools
+    python3-wheel
+    python3-dev
+    python-is-python3
+    python3-cryptography
+    python3-cryptography-vectors
+    python-blinker-doc
+    python-cryptography-doc
+
+    # ============================================================================
+    # GRAPHICS LIBRARIES (for containers with GUI apps)
+    # ============================================================================
+    libgl1-mesa-dri
+    libglu1-mesa
+    libglx-mesa0
+    mesa-vulkan-drivers
+    mesa-utils
+    mesa-va-drivers
+    mesa-vdpau-drivers
+    libva2
+    libvdpau1
+
+    # ============================================================================
+    # X11 LIBRARIES & UTILITIES (deprecated)
+    # ============================================================================
+    # libx11-dev
+    # libxext-dev
+    # libxrender-dev
+    # libxrandr-dev
+    # x11-utils
+    # x11-xserver-utils
+
+    # ============================================================================
+    # BUILD TOOLS & COMPILERS
+    # ============================================================================
+    build-essential
+    gcc
+    g++
+    gdb
+    make
+    cmake
+    autoconf
+    automake
+    libtool
+    pkg-config
+    valgrind
+
+    # ============================================================================
+    # PROGRAMMING LANGUAGES & RUNTIMES
+    # ============================================================================
+    golang-go
+    lua5.4
+    luajit
+    luarocks
+    liblua5.4-dev
+
+    # ============================================================================
+    # DEVELOPMENT LIBRARIES - CORE
+    # ============================================================================
+    libc6-dev
+    libssl-dev
+    libffi-dev
+    libxml2-dev
+    libxslt1-dev
+    libreadline-dev
+    libsqlite3-dev
+    libncurses-dev
+
+    # ============================================================================
+    # DEVELOPMENT LIBRARIES - SYSTEM & CONTAINER-SPECIFIC
+    # ============================================================================
+    libglib2.0-dev
+    libsystemd-dev
+    libpam0g-dev
+    libassuan-dev
+    libbtrfs-dev
+    libdevmapper-dev
+    libgpgme-dev
+    libgpg-error-dev
+    libseccomp-dev
+    libselinux1-dev
+    libapparmor-dev
+    libcap-dev
+
+    # ============================================================================
+    # PROTOCOL BUFFERS & SERIALIZATION
+    # ============================================================================
+    libprotobuf-dev
+    libprotobuf-c-dev
+    protobuf-compiler
+    protobuf-c-compiler
+
+    # ============================================================================
+    # DOCUMENTATION TOOLS
+    # ============================================================================
+    go-md2man
+    pandoc
+    man-db
+    manpages
+    manpages-dev
+
+    # ============================================================================
+    # FILE UTILITIES & ANALYSIS
+    # ============================================================================
+    exiftool
+    tree
+    mc
+)
