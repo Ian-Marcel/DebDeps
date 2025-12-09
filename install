@@ -25,14 +25,15 @@ wait_with_spinner_loading "Upgrading system..."
 
 source sources/essentials.list
 
-$SUDO apt install --fix-broken --fix-missing -y ${packages[@]}
+$SUDO apt install --fix-broken --fix-missing -y ${packages[@]} 1>/dev/null &
+wait_with_spinner_loading "Installing Basic Dependencies..."
 
 while true; do
     read -p "Do you want to install extra dependencies that might be usefull for you? (y/n): " ANSWER
     case $ANSWER in
     [Yy] | [Yy][Ee][Ss])
         source sources/extra_essential.list
-        $SUDO apt install --fix-broken --fix-missing -y ${extra_packages[@]} &>/dev/null &
+        $SUDO apt install --fix-broken --fix-missing -y ${extra_packages[@]} 1>/dev/null &
         wait_with_spinner_loading "Installing Extra Dependencies..."
         break
         ;;
