@@ -34,8 +34,10 @@ while true; do
     case $ANSWER in
     [Yy] | [Yy][Ee][Ss])
         source sources/extra_essential.list
+        clear
         $SUDO apt-get install --fix-broken --fix-missing -y ${extra_packages[@]} #1>/dev/null &
         #wait_with_spinner_loading "Installing Extra Dependencies..."
+        clear
         break
         ;;
     [Nn] | [Nn][Oo])
