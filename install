@@ -28,6 +28,7 @@ source sources/essentials.list
 $SUDO apt-get install --fix-broken --fix-missing -y ${packages[@]} 1>/dev/null &
 wait_with_spinner_loading "Installing Basic Dependencies..."
 
+clear
 while true; do
     printf "WARNING: extra dependencies can not be diplayed gracefully as it need human intervation in some installations\n"
     read -p "Do you want to install extra dependencies that might be usefull for you? (y/n): " ANSWER
