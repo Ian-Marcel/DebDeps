@@ -127,7 +127,7 @@ done
 clear
 # == Nginx ==
 while true; do
-    printf "WARNING: Nginx can not be diplayed gracefully as it uses a custom install of 1.29v with some \nmany curated Dynamic Modules\n\n"
+    printf "WARNING: Nginx can not be diplayed gracefully as it uses a custom install of nginx v1.29.3 with some \nmany curated Dynamic Modules\n\n"
     read -p "Do you want to install Nginx? (y/n): " ANSWER
     case $ANSWER in
     [Yy] | [Yy][Ee][Ss])
