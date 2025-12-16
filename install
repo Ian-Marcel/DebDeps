@@ -124,6 +124,7 @@ while true; do
 done
 # == Docker ==
 
+clear
 # == Nginx ==
 while true; do
     printf "WARNING: Nginx can not be diplayed gracefully as it uses a custom install of 1.29v with some \nmany curated Dynamic Modules\n\n"
@@ -135,7 +136,7 @@ while true; do
         # }
         # install_nginx &>/dev/null &
         # wait_with_spinner_loading "Installing Nginx..."
-
+        clear
         curl -sSL https://from.ianmarcel.dev/install/easy-sourced-nginx | bash
         break
         ;;
