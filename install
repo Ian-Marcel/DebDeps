@@ -60,10 +60,14 @@ while true; do
     case $ANSWER in
     [Yy] | [Yy][Ee][Ss])
         echo "Installing PHP..."
-        curl -sSL https://packages.sury.org/php/README.txt | sudo bash
-        sudo apt-get update
-        sudo apt-get install -y php-fpm php-mysql php-mbstring php-xml php-gd php-pear
-        echo "PHP installation completed."
+        install_php() {
+            # GPG key:
+            curl -sSL https://packages.sury.org/php/README.txt | sudo bash
+            sudo apt-get update
+            sudo apt-get install -y php-fpm php-mysql php-mbstring php-xml php-gd php-pear
+        }
+        install_php &>/dev/null &
+        wait_with_spinner_loading "Installing PHP..."
         break
         ;;
     [Nn] | [Nn][Oo])
