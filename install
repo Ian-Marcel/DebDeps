@@ -53,6 +53,8 @@ done
 
 sudo apt-get autopurge -y
 sudo apt-get clean
+
+clear
 # == Primordial Dependencies ==
 
 # == Ondřej Surý PHP Repository for Debian ==
