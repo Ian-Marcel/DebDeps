@@ -152,33 +152,33 @@ done
 # == Nginx ==
 
 # == Syncthing Debian/Ubuntu ==
-while true; do
-    read -p "Do you want to install Syncthing? (y/n): " ANSWER
-    case $ANSWER in
-    [Yy] | [Yy][Ee][Ss])
-        install_syncthing() {
-            # GPG key:
-            sudo mkdir -p /etc/apt/keyrings
-            sudo curl -L -o /etc/apt/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
-            # Apt sources:
-            echo "deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable-v2" | sudo tee /etc/apt/sources.list.d/syncthing.list
-            printf "Package: *\nPin: origin apt.syncthing.net\nPin-Priority: 990\n" | sudo tee /etc/apt/preferences.d/syncthing.pref
-            sudo apt-get update
-            sudo apt-get install -y syncthing
-        }
-        install_syncthing &>/dev/null &
-        wait_with_spinner_loading "Installing Syncthing..."
-        break
-        ;;
-    [Nn] | [Nn][Oo])
-        echo "Skipping Syncthing installation."
-        break
-        ;;
-    *)
-        echo "Invalid answer. Please enter 'y' for yes or 'n' for no."
-        ;;
-    esac
-done
+# while true; do
+#     read -p "Do you want to install Syncthing? (y/n): " ANSWER
+#     case $ANSWER in
+#     [Yy] | [Yy][Ee][Ss])
+#         install_syncthing() {
+#             # GPG key:
+#             sudo mkdir -p /etc/apt/keyrings
+#             sudo curl -L -o /etc/apt/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
+#             # Apt sources:
+#             echo "deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable-v2" | sudo tee /etc/apt/sources.list.d/syncthing.list
+#             printf "Package: *\nPin: origin apt.syncthing.net\nPin-Priority: 990\n" | sudo tee /etc/apt/preferences.d/syncthing.pref
+#             sudo apt-get update
+#             sudo apt-get install -y syncthing
+#         }
+#         install_syncthing &>/dev/null &
+#         wait_with_spinner_loading "Installing Syncthing..."
+#         break
+#         ;;
+#     [Nn] | [Nn][Oo])
+#         echo "Skipping Syncthing installation."
+#         break
+#         ;;
+#     *)
+#         echo "Invalid answer. Please enter 'y' for yes or 'n' for no."
+#         ;;
+#     esac
+# done
 # == Syncthing Debian/Ubuntu ==
 
 # == Ondřej Surý PHP Repository for Debian ==
@@ -191,7 +191,10 @@ while true; do
             # GPG key:
             curl -sSL https://packages.sury.org/php/README.txt | sudo bash
             sudo apt-get update
-            sudo apt-get install -y php-fpm php-mysql php-mbstring php-xml php-gd php-pear
+            sudo apt-get install -y \
+                php php-fpm php-mysql \
+                php-mbstring php-xml php-gd \
+                php-pear php-sqlite3
         }
         install_php &>/dev/null &
         wait_with_spinner_loading "Installing PHP..."
